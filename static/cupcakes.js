@@ -12,6 +12,15 @@ $(async function(){
 
     $('#new-cupcake-form').on("submit", async function(e){
         e.preventDefault();
+        const flavor = $('#flavor').val();
+        const size = $('#size').val();
+        const rating = $('#rating').val();
+        const image = $('#image').val();
+
+        cupcake = {flavor, size, rating, image};
+
+        const response = await axios.post('api/cupcakes', cupcake)
+
 
     })
 
