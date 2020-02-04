@@ -1,5 +1,5 @@
 """Flask app for Cupcakes"""
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from models import db, connect_db, Cupcake
 
 app = Flask(__name__)
@@ -9,8 +9,9 @@ connect_db(app)
 db.create_all()
 
 
-
-
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 @app.route("/api/cupcakes")
 def list_all_cupcakes():
